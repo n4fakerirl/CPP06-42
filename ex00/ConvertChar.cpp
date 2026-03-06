@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 09:37:16 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 14:06:59 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 14:35:47 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void convert_char(std::string va, std::string type, long long nbr, float nbr_f, 
 {
     if (type == "char" && va.length() == 1)
         std::cout << "char: '" << va << "'\n";
-    else
+    else if (type == "char")
         std::cout << "char: impossible\n";
     if (type == "int")
         check_char(nbr);

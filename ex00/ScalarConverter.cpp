@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:55:08 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/05 18:08:51 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 09:34:24 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,64 +80,47 @@ int is_double(std::string str)
 //     return (1);
 // }
 
+    // if (type == "char")
+    // else if (type == "int")
+    // else if (type == "float")
+    // else if (type == "double")
+
 void convert_int(std::string va, std::string type)
 {
-    long long nbr = atoll(va.c_str());
-    if (type == "char" && va.length() == 1)
-    {
-        std::cout << "int: " << static_cast<int>(va[0]) << "\n"; 
-        return ;
-    }
-    for (int i = 0; va[i]; i++)
-    {
-        if ((nbr == 0) && va[i] != '0' && va[i] != '-' && va[i] != '+')
-        {
-            std::cout << "int: impossible\n";
-            return;
-        }
-    }
-    if (nbr > INT_MAX || nbr < INT_MIN)
-    {
-        std::cout << "int: impossible\n";
-        return;
-    }
-    std::cout << "int: " << static_cast<int>(nbr) << "\n";  
+    (void)va;
+    (void)type;
 }
+
+void check_char(int nbr)
+{
+    if (nbr < 0 || nbr > 127)
+        std::cout << "char: impossible\n";
+    else if (nbr < 32 || nbr == 127)
+        std::cout << "char: Non displayable\n";
+    else
+        std::cout << "char: '" << static_cast<char>(nbr) << "'\n";
+}
+#include <iomanip>
 
 void convert_char(std::string va, std::string type)
 {
-    long long nbr = atoll(va.c_str());
-    if (type == "char" && va.length() != 1)
-        return ;
+    long long nbr_i = atoll(va.c_str());
+    
     if (type == "char")
-        std::cout << "char: " << va << "\n";
-    else
     {
-        if (nbr >= 0 && nbr < 128)
-        {
-            if (nbr <= 32 || nbr == 127)
-                std::cout << "char: Non displayable\n";
-            else
-                std::cout << "char: '" << static_cast<char>(nbr) << "'\n";
-        }
+        if (va.length() == 1)
+            std::cout << "char: '" << va << "'\n";
         else
             std::cout << "char: impossible\n";
     }
+    if (type == "int" || type == "float" || type == "double")
+        check_char(nbr_i);
 }
 
 void convert_float(std::string va, std::string type)
 {
-    long long nbr = atoll(va.c_str());
-    if (type == "int")
-    {
-        float int_u = static_cast<float>(nbr);
-        std::cout << "float: " << int_u << ".0f" << "\n";
-    }
-    if (type == "double")
-    {
-        float int_u = atof(va.c_str());
-        std::cout << "float: " << int_u << "\n";
-    }
+    (void)va;
+    (void)type;
 }
 
 std::string find_type(std::string str)

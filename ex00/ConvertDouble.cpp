@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 09:38:14 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 12:23:02 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 14:26:56 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void is_round_double(float x, double y, char c)
 {
     if (c == 'f')
     {
+        if (std::isnan(static_cast<double>(x)) == 1)
+        {
+            std::cout << "double: nan\n";
+            return ;
+        }
         if (round(x) == x)
             std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<double>(x) << "\n";
         else
@@ -23,6 +28,11 @@ void is_round_double(float x, double y, char c)
     }
     if (c == 'd')
     {
+        if (std::isnan(y) == 1)
+        {
+            std::cout << "double: nan\n";
+            return ;
+        }
         if (round(y) == y)
             std::cout << std::fixed << std::setprecision(1) << "double: " << y << "\n";
         else
@@ -34,6 +44,8 @@ void convert_double(std::string va, std::string type, long long nbr, float nbr_f
 {
     if (type == "char" && va.length() == 1)
         std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<double>(va[0]) << "\n";
+    else if (type == "char")
+        print_nan(va, 'd');
     if (type == "int")
         std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<double>(nbr) << "\n";
     if (type == "float")

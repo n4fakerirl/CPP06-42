@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 09:37:16 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 10:15:37 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 14:06:59 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,16 @@ void check_char(int nbr)
         std::cout << "char: '" << static_cast<char>(nbr) << "'\n";
 }
 
-void convert_char(std::string va, std::string type)
+void convert_char(std::string va, std::string type, long long nbr, float nbr_f, double nbr_d)
 {
-    if (type != "char" && !small_check(va))
-    {
-        std::cout << "error: string format is not recognized.\n";
-        return;
-    }
-    long long nbr_i = atoll(va.c_str());
-    if (type == "char")
-    {
-        if (va.length() == 1)
-            std::cout << "char: '" << va << "'\n";
-        else
-            std::cout << "char: impossible\n";
-    }
-    if (type == "int" || type == "float" || type == "double")
-        check_char(nbr_i);
+    if (type == "char" && va.length() == 1)
+        std::cout << "char: '" << va << "'\n";
+    else
+        std::cout << "char: impossible\n";
+    if (type == "int")
+        check_char(nbr);
+    if (type == "float")
+        check_char(static_cast<int>(round(nbr_f)));
+    if (type == "double")
+        check_char(static_cast<int>(round(nbr_d)));
 }

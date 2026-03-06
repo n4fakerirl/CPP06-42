@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:55:08 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 09:34:24 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 09:37:08 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,31 +91,7 @@ void convert_int(std::string va, std::string type)
     (void)type;
 }
 
-void check_char(int nbr)
-{
-    if (nbr < 0 || nbr > 127)
-        std::cout << "char: impossible\n";
-    else if (nbr < 32 || nbr == 127)
-        std::cout << "char: Non displayable\n";
-    else
-        std::cout << "char: '" << static_cast<char>(nbr) << "'\n";
-}
-#include <iomanip>
 
-void convert_char(std::string va, std::string type)
-{
-    long long nbr_i = atoll(va.c_str());
-    
-    if (type == "char")
-    {
-        if (va.length() == 1)
-            std::cout << "char: '" << va << "'\n";
-        else
-            std::cout << "char: impossible\n";
-    }
-    if (type == "int" || type == "float" || type == "double")
-        check_char(nbr_i);
-}
 
 void convert_float(std::string va, std::string type)
 {

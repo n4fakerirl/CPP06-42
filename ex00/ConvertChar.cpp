@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 09:37:16 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 09:37:26 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 10:00:21 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ void check_char(int nbr)
 
 void convert_char(std::string va, std::string type)
 {
+    if (type != "char" && !small_check(va))
+    {
+        std::cout << "error: string format is not recognized.\n";
+        return;
+    }
     long long nbr_i = atoll(va.c_str());
     
     if (type == "char")

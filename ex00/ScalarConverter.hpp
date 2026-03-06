@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:54:37 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/06 09:37:32 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/03/06 09:59:05 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ class ScalarConverter
         std::cout << "STRING DE BASE : " << va << "\n";
         std::cout << "TYPE DE LA STRING : " << type << "\n\n";
         convert_char(va, type);
-        //convert_int(va, type);
+        convert_int(va, type);
         //convert_float(va, type);
         std::cout << "\n\n";
     }
 };
 
 void convert_char(std::string va, std::string type);
+void convert_int(std::string va, std::string type);
+void convert_float(std::string va, std::string type);
+void convert_double(std::string va, std::string type);
+int small_check(std::string va);

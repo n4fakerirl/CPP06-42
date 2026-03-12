@@ -6,15 +6,15 @@
 #    By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/05 13:52:06 by ocviller          #+#    #+#              #
-#    Updated: 2026/03/06 13:55:15 by ocviller         ###   ########.fr        #
+#    Updated: 2026/03/12 11:46:14 by ocviller         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -std=c++98 -Wall -Werror -Wextra
 NAME = convert
-SRC = main.cpp ScalarConverter.cpp ConvertChar.cpp ConvertInt.cpp ConvertFloat.cpp ConvertDouble.cpp Parse.cpp
-OBJ = main.o ScalarConverter.o ConvertChar.o ConvertInt.o ConvertFloat.o ConvertDouble.o Parse.o
+SRC = main.cpp ScalarConverter.cpp
+OBJ = main.o ScalarConverter.o
 OPTIONS = -o $(NAME)
 
 all: $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:55:08 by ocviller          #+#    #+#             */
-/*   Updated: 2026/05/13 19:08:22 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/05/13 20:34:57 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void fromFloat(double ref)
     }
     else
     {
-        std::cout << "float: " << ref << "f\n";
+        std::cout << "float: " << std::setprecision(15) << ref << "f\n";
         std::cout << "double: " << static_cast<double>(ref) << "\n";
     }
 }

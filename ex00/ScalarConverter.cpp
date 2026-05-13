@@ -6,7 +6,7 @@
 /*   By: ocviller <ocviller@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 13:55:08 by ocviller          #+#    #+#             */
-/*   Updated: 2026/03/12 15:18:47 by ocviller         ###   ########.fr       */
+/*   Updated: 2026/05/13 19:08:22 by ocviller         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,18 @@ void fromChar(std::string va, std::string *keywords)
     for (int i = 0; i < 6; i++)
     {
         if (va == keywords[i])
-            std::cout << "char: impossible\n";
+        {
+            if (va.find("inf") != std::string::npos)
+            {
+                if (va[0] == '-')
+                    std::cout << "char: impossible\nint: impossible\nfloat: " << -INFINITY << "f\ndouble: " << -INFINITY << "\n";
+                else if (va[0] == '+')
+                    std::cout << "char: impossible\nint: impossible\nfloat: +" << INFINITY << "f\ndouble: +" << INFINITY << "\n";
+            }
+            else if (va.find("nan") != std::string::npos)
+                std::cout << "char: impossible\nint: impossible\nfloat: " << NAN << "f\ndouble: " << NAN << "\n";
+            return ;
+        }
     }
     if (va == "\\")
         std::cout << "\\\n";
